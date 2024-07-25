@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as t}from"./chunks/framework.DF40YQsC.js";const c=JSON.parse('{"title":"页面结构","description":"","frontmatter":{},"headers":[],"relativePath":"html/页面结构.md","filePath":"html/页面结构.md"}'),h={name:"html/页面结构.md"},l=t("",48),n=[l];function k(p,E,e,d,r,g){return a(),i("div",null,n)}const o=s(h,[["render",k]]);export{c as __pageData,o as default};

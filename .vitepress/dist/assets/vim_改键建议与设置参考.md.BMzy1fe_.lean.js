@@ -1,0 +1,1 @@
+import{_ as e,c as a,o,a4 as c}from"./chunks/framework.DF40YQsC.js";const b=JSON.parse('{"title":"改键建议及参考","description":"","frontmatter":{},"headers":[],"relativePath":"vim/改键建议与设置参考.md","filePath":"vim/改键建议与设置参考.md"}'),i={name:"vim/改键建议与设置参考.md"},d=c("",12),r=[d];function t(h,l,s,n,m,_){return o(),a("div",null,r)}const p=e(i,[["render",t]]);export{b as __pageData,p as default};

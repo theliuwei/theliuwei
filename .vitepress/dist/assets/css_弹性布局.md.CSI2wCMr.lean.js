@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DF40YQsC.js";const F=JSON.parse('{"title":"弹性布局","description":"","frontmatter":{},"headers":[],"relativePath":"css/弹性布局.md","filePath":"css/弹性布局.md"}'),h={name:"css/弹性布局.md"},l=n("",122),k=[l];function p(t,e,E,d,r,g){return a(),i("div",null,k)}const c=s(h,[["render",p]]);export{F as __pageData,c as default};

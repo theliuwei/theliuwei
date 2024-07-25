@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as c,a4 as t}from"./chunks/framework.DF40YQsC.js";const p=JSON.parse('{"title":"Mac环境准备","description":"","frontmatter":{},"headers":[],"relativePath":"vim/mac环境准备.md","filePath":"vim/mac环境准备.md"}'),l={name:"vim/mac环境准备.md"},o=t("",5),i=[o];function r(s,d,n,_,m,h){return c(),e("div",null,i)}const v=a(l,[["render",r]]);export{p as __pageData,v as default};

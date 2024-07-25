@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DF40YQsC.js";const F=JSON.parse('{"title":"C++教程","description":"","frontmatter":{},"headers":[],"relativePath":"c++/基础知识.md","filePath":"c++/基础知识.md"}'),h={name:"c++/基础知识.md"},t=n("",314),l=[t];function k(p,e,E,d,r,g){return a(),i("div",null,l)}const c=s(h,[["render",k]]);export{F as __pageData,c as default};

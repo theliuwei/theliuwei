@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as t}from"./chunks/framework.DF40YQsC.js";const c=JSON.parse('{"title":"选择器","description":"","frontmatter":{},"headers":[],"relativePath":"css/选择器.md","filePath":"css/选择器.md"}'),n={name:"css/选择器.md"},l=t("",139),h=[l];function p(k,e,E,d,g,r){return a(),i("div",null,h)}const o=s(n,[["render",p]]);export{c as __pageData,o as default};
