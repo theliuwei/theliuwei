@@ -1,1 +1,0 @@
-import{_ as a,c as e,o as r,a4 as t}from"./chunks/framework.DF40YQsC.js";const b=JSON.parse('{"title":"微服务架构优势和不足","description":"","frontmatter":{},"headers":[],"relativePath":"架构/基础知识.md","filePath":"架构/基础知识.md"}'),h={name:"架构/基础知识.md"},o=t("",42),i=[o];function l(n,d,p,c,s,u){return r(),e("div",null,i)}const q=a(h,[["render",l]]);export{b as __pageData,q as default};

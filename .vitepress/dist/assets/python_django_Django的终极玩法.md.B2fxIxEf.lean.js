@@ -1,1 +1,0 @@
-import{_ as t,c as a,o}from"./chunks/framework.DF40YQsC.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"python/django/Django的终极玩法.md","filePath":"python/django/Django的终极玩法.md"}'),e={name:"python/django/Django的终极玩法.md"};function n(r,s,_,c,p,d){return o(),a("div")}const f=t(e,[["render",n]]);export{m as __pageData,f as default};

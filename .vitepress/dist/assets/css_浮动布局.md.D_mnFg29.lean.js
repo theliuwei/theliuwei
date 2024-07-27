@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as t}from"./chunks/framework.DF40YQsC.js";const c=JSON.parse('{"title":"浮动布局","description":"","frontmatter":{},"headers":[],"relativePath":"css/浮动布局.md","filePath":"css/浮动布局.md"}'),n={name:"css/浮动布局.md"},h=t("",74),l=[h];function p(k,e,d,E,r,g){return a(),i("div",null,l)}const o=s(n,[["render",p]]);export{c as __pageData,o as default};

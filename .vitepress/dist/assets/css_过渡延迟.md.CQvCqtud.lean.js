@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DF40YQsC.js";const F=JSON.parse('{"title":"基础知识","description":"","frontmatter":{},"headers":[],"relativePath":"css/过渡延迟.md","filePath":"css/过渡延迟.md"}'),h={name:"css/过渡延迟.md"},k=n("",40),l=[k];function t(p,e,E,d,r,g){return a(),i("div",null,l)}const C=s(h,[["render",t]]);export{F as __pageData,C as default};

@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as t}from"./chunks/framework.DF40YQsC.js";const o=JSON.parse('{"title":"表单表格","description":"","frontmatter":{},"headers":[],"relativePath":"html/表格与多媒体.md","filePath":"html/表格与多媒体.md"}'),h={name:"html/表格与多媒体.md"},l=t("",19),n=[l];function k(p,E,e,d,r,g){return a(),i("div",null,n)}const c=s(h,[["render",k]]);export{o as __pageData,c as default};

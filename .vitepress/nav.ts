@@ -17,6 +17,7 @@ export default [
                     {text:"Vim", link:"/vim/基础知识"},
                     {text:"Vite", link:"/vite/基础知识"},
                     {text:"Vscode", link:"/vscode/终端打开vscode"},
+                    {text:"Web3", link:"/web3/Web3简介"},
                 ]
             }
         ]

@@ -1,1 +1,0 @@
-import{_ as t,c as d,o as e,a4 as o}from"./chunks/framework.DF40YQsC.js";const f=JSON.parse('{"title":"常用命令","description":"","frontmatter":{},"headers":[],"relativePath":"go/常用命令.md","filePath":"go/常用命令.md"}'),a={name:"go/常用命令.md"},c=o("",11),r=[c];function i(l,h,n,p,s,_){return e(),d("div",null,r)}const m=t(a,[["render",i]]);export{f as __pageData,m as default};

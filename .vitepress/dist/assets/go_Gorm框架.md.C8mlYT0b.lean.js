@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DF40YQsC.js";const o=JSON.parse('{"title":"gorm","description":"","frontmatter":{},"headers":[],"relativePath":"go/Gorm框架.md","filePath":"go/Gorm框架.md"}'),h={name:"go/Gorm框架.md"},t=n("",200),l=[t];function k(p,e,E,r,d,g){return a(),i("div",null,l)}const F=s(h,[["render",k]]);export{o as __pageData,F as default};

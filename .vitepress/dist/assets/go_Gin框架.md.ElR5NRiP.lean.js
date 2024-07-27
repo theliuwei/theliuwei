@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DF40YQsC.js";const y=JSON.parse('{"title":"创建 Gin 项目","description":"","frontmatter":{},"headers":[],"relativePath":"go/Gin框架.md","filePath":"go/Gin框架.md"}'),h={name:"go/Gin框架.md"},l=n("",127),t=[l];function k(p,e,E,r,d,g){return a(),i("div",null,t)}const F=s(h,[["render",k]]);export{y as __pageData,F as default};

@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DF40YQsC.js";const F=JSON.parse('{"title":"定位布局","description":"","frontmatter":{},"headers":[],"relativePath":"css/定位布局.md","filePath":"css/定位布局.md"}'),h={name:"css/定位布局.md"},k=n("",49),l=[k];function p(t,E,e,d,r,g){return a(),i("div",null,l)}const C=s(h,[["render",p]]);export{F as __pageData,C as default};

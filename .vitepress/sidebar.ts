@@ -115,6 +115,19 @@ export default {
             ]
         }
     ],
+    "web3":[
+        {
+            text:"web3",
+            items:[
+                {text:"web3简介", link:"/web3/Web3简介"},
+                {text:"web3发展简史", link:"/web3/Web3发展简史"},
+                {text:"web3未来发展趋势", link:"/web3/Web3未来发展趋势"},
+                {text:"Web3 领域分析（赛道和经典项目）", link:"/web3/Web3 领域分析（赛道和经典项目）"},
+                {text:"如何参与 Web3", link:"/web3/如何参与 Web3"},
+                {text:"如何参与 Web3", link:"/web3/如何参与 Web3"},
+            ]
+        }
+    ],
     "vim":[
         {
             text:"vim",

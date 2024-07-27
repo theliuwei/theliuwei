@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as l}from"./chunks/framework.DF40YQsC.js";const u=JSON.parse('{"title":"安装","description":"","frontmatter":{},"headers":[],"relativePath":"go/安装教程.md","filePath":"go/安装教程.md"}'),e={name:"go/安装教程.md"},n=l("",49),t=[n];function h(p,o,k,d,r,g){return a(),i("div",null,t)}const F=s(e,[["render",h]]);export{u as __pageData,F as default};

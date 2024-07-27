@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as i,a4 as t}from"./chunks/framework.DF40YQsC.js";const E=JSON.parse('{"title":"背景处理","description":"","frontmatter":{},"headers":[],"relativePath":"css/背景处理.md","filePath":"css/背景处理.md"}'),e={name:"css/背景处理.md"},n=t("",86),l=[n];function p(h,d,r,c,o,k){return i(),a("div",null,l)}const u=s(e,[["render",p]]);export{E as __pageData,u as default};

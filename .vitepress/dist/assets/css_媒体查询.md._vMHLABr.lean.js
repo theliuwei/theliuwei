@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as t}from"./chunks/framework.DF40YQsC.js";const g=JSON.parse('{"title":"媒体查询","description":"","frontmatter":{},"headers":[],"relativePath":"css/媒体查询.md","filePath":"css/媒体查询.md"}'),h={name:"css/媒体查询.md"},l=t("",24),n=[l];function e(p,k,r,d,E,o){return a(),i("div",null,n)}const y=s(h,[["render",e]]);export{g as __pageData,y as default};

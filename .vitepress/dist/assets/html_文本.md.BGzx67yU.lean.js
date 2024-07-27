@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as i,a4 as t}from"./chunks/framework.DF40YQsC.js";const g=JSON.parse('{"title":"文本相关","description":"","frontmatter":{},"headers":[],"relativePath":"html/文本.md","filePath":"html/文本.md"}'),e={name:"html/文本.md"},h=t("",63),l=[h];function p(n,k,d,r,o,E){return i(),a("div",null,l)}const u=s(e,[["render",p]]);export{g as __pageData,u as default};

@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DF40YQsC.js";const c=JSON.parse('{"title":"元素权重","description":"","frontmatter":{},"headers":[],"relativePath":"css/元素权重.md","filePath":"css/元素权重.md"}'),l={name:"css/元素权重.md"},t=n("",34),h=[t];function p(k,e,E,d,r,g){return a(),i("div",null,h)}const o=s(l,[["render",p]]);export{c as __pageData,o as default};

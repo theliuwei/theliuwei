@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as t}from"./chunks/framework.DF40YQsC.js";const o=JSON.parse('{"title":"表单","description":"","frontmatter":{},"headers":[],"relativePath":"html/表单与列表.md","filePath":"html/表单与列表.md"}'),h={name:"html/表单与列表.md"},l=t("",78),n=[l];function k(p,e,E,d,r,g){return a(),i("div",null,n)}const F=s(h,[["render",k]]);export{o as __pageData,F as default};

@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DF40YQsC.js";const c=JSON.parse('{"title":"数据样式","description":"","frontmatter":{},"headers":[],"relativePath":"css/数据样式.md","filePath":"css/数据样式.md"}'),h={name:"css/数据样式.md"},l=n("",63),t=[l];function k(p,E,e,d,r,g){return a(),i("div",null,t)}const F=s(h,[["render",k]]);export{c as __pageData,F as default};
