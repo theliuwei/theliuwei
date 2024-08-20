@@ -50,11 +50,13 @@ export default {
         {
             text:"go",
             items:[
+                {text:"前景", link:"/go/前景"},
                 {text:"安装教程",link:"/go/安装教程"},
                 {text:"基础知识", link:"/go/基础知识"},
                 {text:"常用命令", link:"/go/常用命令"},
-                {text:"web框架", link:"/go/web框架"},
-                {text:"orm框架", link:"/go/orm框架"}
+                {text:"Gin程序基本结构和要素", link:"/go/Go程序基本结构和要素"},
+                {text:"Gin框架", link:"/go/Gin框架"},
+                {text:"Gorm框架", link:"/go/Gorm框架"}
                 
             ]
         }
@@ -125,6 +127,7 @@ export default {
                 {text:"Web3 领域分析（赛道和经典项目）", link:"/web3/Web3 领域分析（赛道和经典项目）"},
                 {text:"如何参与 Web3", link:"/web3/如何参与 Web3"},
                 {text:"如何参与 Web3", link:"/web3/如何参与 Web3"},
+                {text:""}
             ]
         }
     ],
