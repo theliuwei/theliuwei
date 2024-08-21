@@ -2,7 +2,7 @@ export default [
   {
     text: '系统课程',
     items: [
-      { text: 'Architecture', link: '/架构/基础知识' },
+      { text: 'Architecture', link: '/architecture/基础知识' },
       { text: 'Html', link: '/html/基础知识' },
       { text: 'Css', link: '/css/基础知识' },
       { text: 'JavaScript', link: '/javascript/基础知识' },

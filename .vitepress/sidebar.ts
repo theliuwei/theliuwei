@@ -56,7 +56,8 @@ export default {
                 {text:"常用命令", link:"/go/常用命令"},
                 {text:"Gin程序基本结构和要素", link:"/go/Go程序基本结构和要素"},
                 {text:"Gin框架", link:"/go/Gin框架"},
-                {text:"Gorm框架", link:"/go/Gorm框架"}
+                {text:"Gorm框架", link:"/go/Gorm框架"},
+                {text:"Gorm框架", link:"/go/Gorm框架"},
                 
             ]
         }
