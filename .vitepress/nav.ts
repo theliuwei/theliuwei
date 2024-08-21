@@ -10,6 +10,7 @@ export default [
       { text: 'Vue', link: '/vue/基础知识' },
       { text: 'React', link: '/react/基础知识' },
       { text: 'C++', link: '/c++/基础知识' },
+      { text: 'Rust', link: '/rust/基础知识' },
       { text: 'Go', link: '/go/基础知识' },
       { text: 'Python', link: '/python/基础知识' },
       { text: 'Mysql', link: '/mysql/基础知识' },
@@ -17,6 +18,7 @@ export default [
       { text: 'Redis', link: '/redis/基础知识' },
       { text: 'MongoDB', link: '/mongodb/基础知识' },
       { text: 'Docker', link: '/Docker/基础知识' },
+      { text: 'Nginx', link: '/nginx/基础知识' },
     ],
   },
   {
