@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
-import nav from "./nav"
-import sidebar from "./sidebar"
+import nav from './nav'
+import sidebar from './sidebar'
 import footer from './footer'
 
 export default defineConfig({
@@ -11,32 +11,29 @@ export default defineConfig({
         output: {
           manualChunks(id) {
             // 自定义的分块逻辑
-          }
-        }
-      }
-    }
+          },
+        },
+      },
+    },
   },
-  title: "THELIUWEI",
-  description: "THELIUWEI",
-  srcDir:"./docs/",
+  title: 'THELIUWEI',
+  description: 'THELIUWEI',
+  srcDir: './docs/',
   themeConfig: {
-    logo:"/Subtract.svg",
-    search:{
-      provider: 'local'
+    logo: '/Subtract.svg',
+    search: {
+      provider: 'local',
     },
     nav,
     sidebar,
 
-
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/pythonliuwei-root' }
+      { icon: 'github', link: 'https://github.com/pythonliuwei-root' },
+      { icon: 'github', link: 'https://github.com/theliuwei' },
     ],
-    footer:{
+    footer: {
       message: 'Released under the MIT License.',
-        copyright: 'Copyright © 2024-present Liu Wei'
-    }
-    
+      copyright: 'Copyright © 2024-present Liu Wei',
+    },
   },
- 
-  
 })
