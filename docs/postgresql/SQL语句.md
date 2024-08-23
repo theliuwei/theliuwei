@@ -35,7 +35,7 @@ PostgreSQL是一种*关系数据库管理系统*( RDBMS )。这意味着它是�
 
 您可以通过指定表名以及所有列名及其类型来创建新表：
 
-```postgresql
+```bash
 CREATE TABLE weather (
     city            varchar(80),
     temp_lo         int,           -- low temperature
@@ -55,7 +55,7 @@ PostgreSQL支持标准SQL类型`int`、`smallint`、`real`、`double precision`�
 
 第二个示例将存储城市及其相关的地理位置：
 
-```postgresql
+```bash
 CREATE TABLE cities (
     name            varchar(80),
     location        point
@@ -66,6 +66,6 @@ CREATE TABLE cities (
 
 最后，值得一提的是，如果您不再需要某个表或者想要以不同的方式重新创建它，您可以使用以下命令将其删除：
 
-```postgresql
+```bash
 DROP TABLE tablename;
 ```

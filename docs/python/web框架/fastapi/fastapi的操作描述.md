@@ -235,7 +235,9 @@ def get_blogs_all(page=1, page_size: Optional[int] = None):
 在下面的代码，我们通过get_comment为例，示范如何在文字文件字符串（Docstring）中写上描述。
 ```
 
-同样的，在存档之后，我们到Swagger UI里面检视结果。![img](./assets/1*4oeLI1EKFAMfnapVldfIaQ.png)
+同样的，在存档之后，我们到Swagger UI里面检视结果
+
+。![img](./assets/1*4oeLI1EKFAMfnapVldfIaQ.png)
 
 ![img](./assets/1*4oeLI1EKFAMfnapVldfIaQ-20240723175230993.png)
 

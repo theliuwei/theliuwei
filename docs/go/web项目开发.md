@@ -100,22 +100,22 @@ func main() {
 
     ```go
     package main
-
+	
     import (
         "github.com/gin-gonic/gin"
     )
-
+	
     func main() {
         r := gin.Default()
-
+	
         r.GET("/ping", func(c *gin.Context) {
             c.JSON(200, gin.H{
                 "message": "pong",
             })
         })
-
+	
         r.Run(
-
+	
 		})
 
 
@@ -207,7 +207,7 @@ Gin的路由功能非常强大，可以处理各种HTTP请求，包括GET、POST
             })
         })
     }
-
+    
     v2 := r.Group("/v2")
     {
         v2.POST("/users", func(c *gin.Context) {
@@ -252,11 +252,11 @@ func Logger() gin.HandlerFunc {
 
     ```go
     package routes
-
+    
     import ("
         "github.com/gin-gonic/gin"
     )
-
+    
     func UsersRoutes(r *gin.Engine) {
         r.GET("/users", func(c *gin.Context) {
             c.JSON(200, gin.H{
@@ -276,3 +276,144 @@ func Logger() gin.HandlerFunc {
 9. 分层架构：采用类似MVC的架构模式，将业务逻辑、数据访问和API处理分离。
 10. 模块化：将不同的功能代码放到不同的包。
 11. 配置管理：将配置信息（如数据库连接、环境配置等）单独管理。
+
+将所有的都放在`main.go`文件中不是最佳的实践，为了项目的模块化和可维护。制定一个优化方案。
+## 项目优化
+1. 创建多个文件和包
+ - `main.go`：保留住函数和服务器启动逻辑。
+ - `routes/routes.go`:定义路由。
+ - `handlers/handlers.go`:处理HTTP请求的函数。
+ - `config/config.go`:配置相关的代码。
+ - `databses/databases.go`:数据库连接和操作
+2. 重构后的文件结构如下
+```bash
+ .
+├── main.go
+├── routes
+│   └── routes.go
+├── handlers
+│   └── handlers.go
+├── config
+│   └── config.go
+└── database
+    └── database.go
+```
+4. 代码示例
+   1. main.go
+   
+       ```go
+         package main
+       
+       import (
+           "your_project/config"
+           "your_project/database"
+           "your_project/routes"
+           "github.com/gin-gonic/gin"
+       )
+       
+       func main() {
+           config.Init()
+           database.Init()
+           
+           r := gin.Default()
+           routes.SetupRoutes(r)
+           
+           err := r.Run()
+           if err != nil {
+               panic("Failed to start server: " + err.Error())
+           }
+       }
+       ```
+   2. routes/routes.go
+
+      ```go
+      package routes
+      
+      import (
+          "your_project/handlers"
+          "github.com/gin-gonic/gin"
+      )
+      
+      func SetupRoutes(r *gin.Engine) {
+          r.GET("/ping", handlers.PingHandler)
+          r.GET("/dbcheck", handlers.DBCheckHandler)
+          r.GET("/data", handlers.DataHandler)
+      }
+      ```
+
+   3. handlers/handlers.go
+     ```go
+        package handlers
+        import (
+            "github.com/gin-gonic/gin"
+            "net/http"
+            "your_project/database"
+        )
+
+        func PingHandler(c *gin.Context) {
+            c.JSON(http.StatusOK, gin.H{"message": "pong"})
+        }
+
+        func DBCheckHandler(c *gin.Context) {
+            var result int
+            err := database.DB.Raw("SELECT 1").Scan(&result).Error
+            if err != nil {
+                c.JSON(500, gin.H{"error": "Database connection failed: " + err.Error()})
+                return
+            }
+            c.JSON(200, gin.H{"message": "Database connection successful", "result": result})
+        }
+
+        func DataHandler(c *gin.Context) {
+            res, err := http.Get("http://192.168.0.107:6789/api/apps/1/pdf")
+            if err != nil {
+                c.JSON(500, gin.H{"error": "Request failed: " + err.Error()})
+                return
+            }
+            defer res.Body.Close()
+            if res.StatusCode == 200 {
+                c.JSON(http.StatusOK, gin.H{"message": "Request successful", "result": res.Body})
+            }
+        }
+        ``` 
+4. config/config.go
+    ```go
+    package config
+
+    import (
+        "github.com/gin-gonic/gin"
+        "os"
+    )
+
+    func Init() {
+        if os.Getenv("GIN_MODE") == "release" {
+            gin.SetMode(gin.ReleaseMode)
+        }
+    }
+    ```
+5. database/database.go
+    ```go
+    package database
+
+    import (
+        "github.com/jinzhu/gorm"
+        _ "github.com/jinzhu/gorm/dialects/mysql"
+        "your_project/config"
+    )
+
+    var DB *gorm.DB
+
+    func Init() {
+        var err error
+        DB, err = gorm.Open("mysql", "root:123456@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
+    ```
+
+## 启动项目
+```bash
+go run main.go
+```
+
+## 访问
+1. http://localhost:8080/ping
+2. http://localhost:8080/dbcheck
+3. http://localhost:8080/data

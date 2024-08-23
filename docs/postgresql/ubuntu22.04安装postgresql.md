@@ -78,7 +78,7 @@ sudo chmod -777 /etc/postgresql/14/main/postgresql.conf
 ```
 然后修改配置文件，允许远程访问。
 
-```bashsql
+```bash
 listen_addresses = '*'
 ```
 修改listening_addresses为`*`，表示监听所有地址。
