@@ -1,0 +1,55 @@
+# 卸载postgresql数据库
+
+## Mac OS系统卸载postgresql数据库
+
+### 查看已经安装的postgresql数据库
+```shell
+brew brew services list
+```
+### 停止postgresql数据库
+```shell
+brew services stop postgresql@15
+```
+### 卸载postgresql数据库
+```shell
+brew uninstall postgresql@15
+```
+### 删除postgresql数据库
+```shell
+brew cleanup
+```
+### 删除postgresql数据库配置文件
+```shell
+rm -rf /usr/local/var/postgres
+```
+### 删除postgresql数据库的data文件
+```shell
+rm -rf /usr/local/var/log/postgres
+```
+
+## Linux系统卸载postgresql数据库
+
+### 查看已经安装的postgresql数据库
+```shell
+sudo systemctl status postgresql
+```
+### 停止postgresql数据库
+```shell
+sudo systemctl stop postgresql
+```
+### 卸载postgresql数据库
+```shell
+sudo apt-get remove postgresql
+```
+### 删除postgresql数据库配置文件
+```shell
+sudo rm -rf /etc/postgresql
+```
+### 删除postgresql数据库的data文件
+```shell
+sudo rm -rf /var/lib/postgresql
+```
+### 删除postgresql数据库的log文件
+```shell
+sudo rm -rf /var/log/postgresql
+```

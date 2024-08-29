@@ -14,13 +14,13 @@ EDB 在以下平台上对安装程序进行了测试。它们通常也适用于�
 | 11                                 | 10.12 - 10.14                                                |
 | 10                                 | 10.11 - 10.13                                                |
 
-PostgreSQL 也可以使用 Homebrew 安装在 macOS 上。例如，要安装 PostgreSQL 15，您可以使用以下命令：
+PostgreSQL 也可以使用 Homebrew 安装在 macOS 上。例如，要安装 PostgreSQL 16，您可以使用以下命令：
 
 ```shell
 brew install postgresql@16
 ```
 
-您可以使用 Homebrew Formulae 搜索 PostgreSQL 和其他包。要查找 PostgreSQL 的特定主要版本，请搜索 `postgresql@NN` ，其中 `NN` 表示主要版本。例如， `postgresql@15` .
+您可以使用 Homebrew Formulae 搜索 PostgreSQL 和其他包。要查找 PostgreSQL 的特定主要版本，请搜索 `postgresql@NN` ，其中 `NN` 表示主要版本。例如， `postgresql@16` .
 
 如果您需要将 postgresql@16 放在 PATH 中，请运行：
 
