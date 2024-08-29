@@ -1247,3 +1247,162 @@ func main() {
 在这个例子中，我们首先使用`sql.Open`方法连接到数据库。然后，我们使用`db.Begin`方法开始一个新的事务。接下来，我们使用`tx.Exec`方法执行SQL语句。如果执行过程中发生错误，我们使用`tx.Rollback`方法回滚事务。如果一切顺利，我们使用`tx.Commit`方法提交事务。
 
 在实际项目中，我们可能会在多个地方使用事务，例如在处理用户注册、订单支付等业务时。使用事务可以确保数据的一致性和完整性，避免出现数据损坏的情况。
+
+### 类型名称增加
+```go
+// models
+package models
+
+type Category struct {
+	BaseModel
+	Name     string      `gorm:"size:50;" validate:"required"`
+	ParentID *uint       `validate:"omitempty,gt=0"`
+	Parent   *Category   `gorm:"foreignKey:ParentID;references:ID"`
+	Children []*Category `gorm:"foreignKey:ParentID;references:ID"`
+}
+
+func (Category) TableName() string { return "CategoryModel" }
+
+```
+```go
+// CreateCategory 类别创建
+func CreateCategory(c *gin.Context) {
+	var category models.Category
+	var validate = validator.New()
+	if err := c.ShouldBindJSON(&category); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+
+	}
+	if err := validate.Struct(&category); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+
+	}
+	// 验证name的唯一性
+	var existingCategory models.Category
+	if err := database.DB.Where("name = ?", category.Name).First(&existingCategory).Error; err == nil {
+		// 如果找到已有的记录，则说明 Name 存在
+		// 检查数据是否删除，IsDel是true属于删除
+		if existingCategory.IsDel {
+			existingCategory.IsDel = false // 业务逻辑：不删除数据，而是修改删除状态。
+			if updateErr := database.DB.Save(&existingCategory).Error; updateErr != nil {
+				c.JSON(http.StatusBadRequest, gin.H{"error": updateErr.Error()})
+
+			}
+			c.JSON(http.StatusCreated, gin.H{"category": category})
+
+		}
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Category name already exists"})
+
+	} else if !errors.Is(err, gorm.ErrRecordNotFound) {
+		// 如果查询出现其他错误（非未找到记录），则返回错误信息
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+
+	}
+	// 创建数据
+	if err := database.DB.Create(&category).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+
+	}
+	c.JSON(http.StatusCreated, gin.H{"category": category})
+
+}
+```
+### 类型名称删除
+```go
+// DeleteCategory 类别删除
+func DeleteCategory(c *gin.Context) {
+	id := c.Param("id")
+	if id == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "id is required"})
+
+	}
+	var category models.Category
+	var validate = validator.New()
+	if err := validate.Struct(&category); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	}
+	//先查询是否存在
+	if err := database.DB.Where("id = ? AND is_del = ?", id, false).First(&category).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	}
+
+	//执行软删除，修改状态字段
+	category.IsDel = true
+	// 更新数据库记录
+	if err := database.DB.Save(&category).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	}
+
+	//成功软删除返回响应
+	c.JSON(http.StatusOK, gin.H{"status": "success", "message": "Category soft deleted successfully"})
+
+}
+```
+### 类型名称修改
+```go
+// UpdateCategory 类别更新
+func UpdateCategory(c *gin.Context) {
+	id := c.Param("id")
+	var updateData map[string]interface{}
+	fmt.Println(1, updateData)
+	if err := c.ShouldBindJSON(&updateData); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+
+	}
+	var category models.Category
+	if err := database.DB.First(&category, "id = ? AND is_del = ?", id, false).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+
+	}
+	if err := database.DB.Model(&category).Updates(updateData).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+
+	}
+	c.JSON(http.StatusOK, gin.H{"status": "success", "data": category})
+
+}
+```
+
+### 类型查询
+```go
+// GetCategoriesHandler 类别查询
+func GetCategoriesHandler(c *gin.Context) {
+	id := c.Query("id")
+	name := c.Query("name")
+	parent := c.Query("parent")
+	page := c.Query("page")
+	limit := c.Query("limit")
+	var result interface{}
+	var err error
+	// 查询逻辑
+	if id != "" {
+		// 如果提供了id, 查询特定类别
+		var category models.Category
+		err = database.DB.First(&category, id).Error
+		result = category
+	} else if name != "" {
+		// 如果提供了name, 查询指定名称的类别
+		var category models.Category
+		err = database.DB.Where("name = ? AND parent = ? AND is_del = ?", name, parent, false).First(&category).Error
+		result = category
+	} else {
+		// 否则查询所有类别
+		limit, offset := config.Paginate(c)
+		var categories []models.Category
+		err = database.DB.Limit(limit).Offset(offset).Find(&categories, "is_del = ?", false).Error
+		result = categories
+	}
+	// 错误处理
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Record not found"})
+		} else {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		}
+
+	}
+	// 成功查询到数据，返回200和结果
+	c.JSON(http.StatusOK, gin.H{"status": "success", "data": result, "page": page, "limit": limit})
+
+}
+```
