@@ -235,5 +235,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 在上述代码中，我们首先定义了BASE_DIR变量，用于保存Django应用程序的根目录。然后，我们定义了SITE_URL变量，并将其设置为你的Django应用程序的服务地址。最后，我们设置了媒体文件的URL和存储路径，分别为MEDIA_URL和MEDIA_ROOT。
 
-需要注意的是，SITE_URL应该是你的Django应用程序的服务地址，可以根据需要进行修改。如果你的Django应用程序运行在本地开发服务器上，则可以将SITE_URL设置为'http://localhost:8000'。如果你的Django应用程序运行在Nginx等Web服务器上，则应该将SITE_URL设置为你的Web服务器的地址。
+需要注意的是，SITE_URL应该是你的Django应用程序的服务地址，可以根据需要进行修改。如果你的Django应用程序运行在本地开发服务器上，则可以将SITE_URL设置为```'http://localhost:8000'```。如果你的Django应用程序运行在Nginx等Web服务器上，则应该将SITE_URL设置为你的Web服务器的地址。
 

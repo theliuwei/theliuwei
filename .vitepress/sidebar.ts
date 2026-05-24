@@ -66,6 +66,7 @@ export default {
     {
       text: 'react',
       items: [
+        { text: '什么是react', link: '/react/什么是react' },
         { text: '基础知识', link: '/react/基础知识' },
         { text: 'React的Hooks', link: '/react/React的Hooks' },
         { text: 'React中使用Three.js', link: '/react/React中使用Three.js' },
@@ -75,8 +76,50 @@ export default {
 
   'c++': [
     {
-      text: 'c++',
-      items: [{ text: '基础知识', link: '/c++/基础知识' }],
+      text: 'C++核心技术',
+      items: [
+        { text: '基础知识', link: '/c++/基础知识' },
+        { text: '面向对象编程', link: '/c++/面向对象编程' },
+        { text: '设计模式实战', link: '/c++/设计模式实战' },
+        { text: '内存管理深度解析', link: '/c++/内存管理深度解析' },
+        { text: '现代C++特性详解', link: '/c++/现代C++特性详解' },
+        { text: '模板编程进阶', link: '/c++/模板编程进阶' },
+        { text: 'STL源码解析', link: '/c++/STL源码解析' },
+      ],
+    },
+    {
+      text: '高性能编程',
+      items: [
+        { text: '性能优化实战', link: '/c++/性能优化实战' },
+        { text: '并发编程实战', link: '/c++/并发编程实战' },
+        { text: '网络编程实战', link: '/c++/网络编程实战' },
+        { text: '高性能服务器设计', link: '/c++/高性能服务器设计' },
+      ],
+    },
+    {
+      text: '算法与数据结构',
+      items: [
+        { text: '算法设计与分析', link: '/c++/算法设计与分析' },
+        { text: '数据结构进阶', link: '/c++/数据结构进阶' },
+        { text: '机器学习算法实现', link: '/c++/机器学习算法实现' },
+      ],
+    },
+    {
+      text: '工程实践',
+      items: [
+        { text: 'CMake进阶使用', link: '/c++/CMake进阶使用' },
+        { text: '调试技巧大全', link: '/c++/调试技巧大全' },
+        { text: '代码质量管理', link: '/c++/代码质量管理' },
+        { text: '跨平台开发', link: '/c++/跨平台开发' },
+      ],
+    },
+    {
+      text: '职业发展',
+      items: [
+        { text: '技术面试指南', link: '/c++/技术面试指南' },
+        { text: '开源项目贡献', link: '/c++/开源项目贡献' },
+        { text: '技术博客写作', link: '/c++/技术博客写作' },
+      ],
     },
   ],
   go: [
@@ -85,10 +128,10 @@ export default {
       items: [
         { text: '前景', link: '/go/前景' },
         { text: '安装教程', link: '/go/安装教程' },
-        { text: '基础知识', link: '/go/基础知识' },
         { text: '常用命令', link: '/go/常用命令' },
+        { text: '基础知识', link: '/go/基础知识' },
         { text: '热重载', link: '/go/热重载' },
-        { text: 'Gin程序基本结构和要素', link: '/go/Go程序基本结构和要素' },
+        { text: 'Go程序的基本结构和要素', link: '/go/Go程序的基本结构和要素' },
         { text: 'Gin框架', link: '/go/Gin框架' },
         { text: 'Gorm框架', link: '/go/Gorm框架' },
         { text: 'web项目开发', link: '/go/web项目开发' },
@@ -197,9 +240,8 @@ export default {
         { text: 'web3简介', link: '/web3/Web3简介' },
         { text: 'web3发展简史', link: '/web3/Web3发展简史' },
         { text: 'web3未来发展趋势', link: '/web3/Web3未来发展趋势' },
-        { text: 'Web3 领域分析（赛道和经典项目）', link: '/web3/Web3 领域分析（赛道和经典项目）' },
-        { text: '如何参与 Web3', link: '/web3/如何参与 Web3' },
-        { text: '如何参与 Web3', link: '/web3/如何参与 Web3' },
+        { text: 'Web3 领域分析（赛道和经典项目）', link: '/web3/Web3领域分析(赛道和经典项目)' },
+        { text: '如何参与 Web3', link: '/web3/如何参与Web3' },
       ],
     },
   ],

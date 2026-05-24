@@ -437,9 +437,9 @@ go run main.go
 ```
 
 ## 访问
-1. http://localhost:8080/ping
-2. http://localhost:8080/dbcheck
-3. http://localhost:8080/data
+1. `http://localhost:8080/ping`
+2. `http://localhost:8080/dbcheck`
+3. `http://localhost:8080/data`
 
 ## 注释
 在golang开发中，经常需要为函数增加描述信息，函数的文档注释通常放在函数的正上方，这种注释被称为`godoc注释`。对于你提供的`pingHandler`函数，我们可以这样添加注释。
@@ -1406,3 +1406,73 @@ func GetCategoriesHandler(c *gin.Context) {
 
 }
 ```
+
+## Gin框架项目中连接Redis
+例子：在web项目中连接redis并存储验证码是一个常见任务，可以使用`github.com/go-redis/redis/v8`来实现这个功能。
+安装`go-redis`库
+```shell
+go get -u github.com/go-redis/redis/v8
+```
+在项目中使用`go-redis`库连接Redis并存储验证码
+1. 在`main.go`中初始化Redis客户端
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"github.com/gin-gonic/gin"
+	"github.com/go-redis/redis/v8"
+	"net/http"
+)
+
+var ctx = context.Background()
+
+func main() {
+	r := gin.Default()
+	// 初始化Redis客户端
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379", // Redis服务器地址
+		Password: "",               // Redis服务器密码
+		DB:       0,                // Redis数据库索引
+	})
+
+	// 测试Redis连接
+	pong, err := rdb.Ping(ctx).Result()
+	if err != nil {
+		fmt.Println("Failed to connect to Redis:", err)
+		return
+	}
+	fmt.Println("Connected to Redis:", pong)
+
+	// 注册路由
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "pong",
+		})
+	})
+
+	// 启动服务器
+	r.Run(":8080")
+}
+```
+2. 编写生成验证码代码
+   ```go
+   func generateVerificationCode() string {
+    rand.Seed(time.Now().UnixNano())
+    return fmt.Sprintf("%06d", rand.Intn(1000000))
+	}
+	```
+3. 编写存储验证码代码
+	```go
+	func storeVerificationCode(ctx context.Context, rdb *redis.Client, email, code string) error {
+	// 存储验证码，设置5分钟过期时间
+	return rdb.Set(ctx, email, code, 5*time.Minute).Err()
+	}
+	```
+4. 编写获取验证码代码
+	```go
+	func getVerificationCode(ctx context.Context, rdb *redis.Client, email string) (string, error) {
+    return rdb.Get(ctx, email).Result()
+	}
+	```
